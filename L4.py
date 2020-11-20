@@ -1,7 +1,7 @@
-# Base para la solución del Laboratorio 4
-
+# Laboratorio 4
+#Johnatan Quintero Valverde B65606
 # Los parámetros T, t_final y N son elegidos arbitrariamente
-
+# Se utiliza media 0 y varianza 9 para las VA X y Y
 import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
@@ -15,15 +15,15 @@ T = 100			# número de elementos
 t_final = 10	# tiempo en segundos
 t = np.linspace(0, t_final, T)
 
-# Inicialización del proceso aleatorio X(t) con N realizaciones
+# Inicialización del proceso aleatorio W(t) con N realizaciones
 N = 10
-W_t = np.empty((N, len(t)))	# N funciones del tiempo x(t) con T puntos
+W_t = np.empty((N, len(t)))	# N funciones del tiempo w(t) con T puntos
 
-# Creación de las muestras del proceso x(t) (A y Z independientes)
+# Creación de las muestras del proceso w(t)
 for i in range(N):
 	X = vaX.rvs()
 	Y = vaY.rvs()
-	w_t = X * np.cos(np.pi*t) + Y * np.sin(np.pi*t)
+	w_t = X * np.cos(np.pi*t) + Y * np.sin(np.pi*t) #proceso del Problema1
 	W_t[i,:] = w_t
 	plt.plot(t, w_t)
 
